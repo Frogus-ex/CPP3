@@ -1,16 +1,24 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap ()
+DiamondTrap::DiamondTrap () : ClapTrap("DiamondTrap_clap_name")
 {
   _name = "DiamondTrap";
   std::cout << "DiamondTrap default constructor called\n";
+  _hitPoint = FragTrap::_init_hit_point;
+  _energyPoint = ScavTrap::_init_energy_point;
+  _attackDamage = FragTrap::_init_attack_damage;
+  print_stat();
 }
 
 DiamondTrap::DiamondTrap (std::string name)
-    : ClapTrap (name + "_clapname"), ScavTrap (name),FragTrap (name)
+    : ClapTrap (name + "_clap_name"), ScavTrap (), FragTrap ()
 {
   _name = name;
   std::cout << "Diamond constructor called\n";
+  _hitPoint = FragTrap::_init_hit_point;
+  _energyPoint = ScavTrap::_init_energy_point;
+  _attackDamage = FragTrap::_init_attack_damage;
+  print_stat();
 }
 
 DiamondTrap::~DiamondTrap ()
@@ -18,9 +26,7 @@ DiamondTrap::~DiamondTrap ()
   std::cout << "DiamondTrap destructor called\n";
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &copy){
-    *this = copy;
-}
+DiamondTrap::DiamondTrap (const DiamondTrap &copy) { *this = copy; }
 
 DiamondTrap &
 DiamondTrap::operator= (const DiamondTrap &old)
@@ -39,7 +45,7 @@ DiamondTrap::operator= (const DiamondTrap &old)
 void
 DiamondTrap::attack (const std::string &target)
 {
-  if (_hitPoint > 0 || _energyPoint > 0)
+  if (_hitPoint > 0 && _energyPoint > 0)
     {
       std::cout << BOLDYELLOW << _name << RED
                 << " talks meanfully to his opponent " << BOLDYELLOW << target
@@ -64,4 +70,5 @@ DiamondTrap::whoAmI ()
   std::cout << GREEN << "my name is " << BOLDYELLOW << _name << GREEN
             << "\nmy robot name is " << BOLDYELLOW << ClapTrap::_name << "\n"
             << RESET;
+  print_stat();
 }

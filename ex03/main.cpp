@@ -22,8 +22,8 @@ main (void)
   test3 = test;
   test3.attack ("dragon");
 
-  DiamondTrap test4;
-  test4.attack("Gemstone guardian");
-  test4.takeDamage(20);
-  test4.whoAmI();
+  DiamondTrap test4("Polo");
+  test4.attack ("Gemstone guardian");
+  test4.takeDamage (20);
+  test4.whoAmI ();
 }

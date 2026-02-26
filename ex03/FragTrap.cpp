@@ -10,9 +10,9 @@ FragTrap::FragTrap ()
 
 FragTrap::FragTrap (std::string name) : ClapTrap (name)
 {
-  _hitPoint = 100;
-  _energyPoint = 100;
-  _attackDamage = 30;
+  _hitPoint = _init_hit_point;
+  _energyPoint = _init_energy_point;
+  _attackDamage = _init_attack_damage;
   std::cout << "Fragtrap constructor called\n";
 }
 
@@ -21,7 +21,7 @@ FragTrap::~FragTrap () { std::cout << "FragTrap destructor called\n"; }
 void
 FragTrap::attack (const std::string &target)
 {
-  if (_hitPoint > 0 || _energyPoint > 0)
+  if (_hitPoint > 0 && _energyPoint > 0)
     {
       std::cout << BOLDYELLOW << _name << RED
                 << " talks meanfully to his opponent " << BOLDYELLOW << target

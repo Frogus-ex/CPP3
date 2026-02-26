@@ -1,5 +1,4 @@
 #include "ScavTrap.hpp"
-#include "Colors.hpp"
 
 ScavTrap::ScavTrap ()
 {
@@ -15,9 +14,13 @@ ScavTrap::ScavTrap (std::string name) : ClapTrap (name)
   _energyPoint = 50;
   _attackDamage = 20;
   std::cout << "ScavTrap constructor called\n";
+  print_stat();
 }
 
-ScavTrap::~ScavTrap () { std::cout << "ScavTrap Destructor called\n"; }
+ScavTrap::~ScavTrap () { 
+  std::cout << "ScavTrap Destructor called\n";
+  print_stat();
+}
 
 ScavTrap::ScavTrap (const ScavTrap &copy)
 {
@@ -42,7 +45,7 @@ ScavTrap::operator= (const ScavTrap &old)
 void
 ScavTrap::attack (const std::string &target)
 {
-  if (_hitPoint > 0 || _energyPoint > 0)
+  if (_hitPoint > 0 && _energyPoint > 0)
     {
       std::cout << BOLDYELLOW << _name << RED << " Fists his opponent "
                 << BOLDYELLOW << target << RED << " causing " << BOLDRED

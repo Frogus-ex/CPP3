@@ -1,11 +1,12 @@
 #pragma once
 #include "ClapTrap.hpp"
-#include <iostream>
-#include <string>
 
 class ScavTrap : virtual public ClapTrap
 {
-private:
+protected:
+    static const unsigned int _init_hit_point = 100;
+    static const unsigned int _init_energy_point = 50;
+    static const unsigned int _init_attack_damage = 20;
 public:
   ScavTrap ();
   ScavTrap (std::string name);
