@@ -42,26 +42,9 @@ DiamondTrap::operator= (const DiamondTrap &old)
   return *this;
 }
 
-void
-DiamondTrap::attack (const std::string &target)
+void DiamondTrap::attack(const std::string &target)
 {
-  if (_hitPoint > 0 && _energyPoint > 0)
-    {
-      std::cout << BOLDYELLOW << _name << RED
-                << " talks meanfully to his opponent " << BOLDYELLOW << target
-                << RED << " causing " << BOLDRED << _attackDamage
-                << " emotionnal damage !\n"
-                << RESET;
-      _energyPoint--;
-    }
-  else if (_hitPoint == 0)
-    std::cout << RED << "but sorrowfully " << BOLDYELLOW << _name << RED
-              << " is in critical conditions...\n"
-              << RESET;
-  else if (_energyPoint == 0)
-    std::cout << RED << "but sorrowfully " << BOLDYELLOW << _name << RED
-              << " is exhausted\n"
-              << RESET;
+    ScavTrap::attack(target);
 }
 
 void
