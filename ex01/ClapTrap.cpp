@@ -27,10 +27,10 @@ ClapTrap::operator= (const ClapTrap &old)
   std::cout << "assignment overload called\n";
   if (this != &old)
     {
-      this->_name = old._name;
-      this->_hitPoint = old._hitPoint;
-      this->_energyPoint = old._energyPoint;
-      this->_attackDamage = old._attackDamage;
+      _name = old._name;
+      _hitPoint = old._hitPoint;
+      _energyPoint = old._energyPoint;
+      _attackDamage = old._attackDamage;
     }
   return *this;
 };
