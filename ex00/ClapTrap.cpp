@@ -12,7 +12,7 @@ ClapTrap::ClapTrap (std::string name)
   std::cout << "ClapTrap Constructor called\n";
 }
 
-ClapTrap::~ClapTrap () { std::cout << "Destructor called\n"; }
+ClapTrap::~ClapTrap () { std::cout << "ClapTrap Destructor called\n"; }
 
 ClapTrap::ClapTrap (const ClapTrap &copy)
 {
