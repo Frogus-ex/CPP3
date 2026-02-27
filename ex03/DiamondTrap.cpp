@@ -45,6 +45,7 @@ DiamondTrap::operator= (const DiamondTrap &old)
 void DiamondTrap::attack(const std::string &target)
 {
     ScavTrap::attack(target);
+    print_stat();
 }
 
 void
