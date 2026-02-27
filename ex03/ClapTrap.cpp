@@ -3,27 +3,27 @@
 ClapTrap::ClapTrap ()
     : _name ("random"), _hitPoint (10), _energyPoint (10), _attackDamage (0)
 {
-  std::cout << "default constructor called\n";
-};
+  std::cout << "ClapTrap default constructor called\n";
+}
 
 ClapTrap::ClapTrap (std::string name)
     : _name (name), _hitPoint (10), _energyPoint (10), _attackDamage (0)
 {
-  std::cout << "Constructor called\n";
-};
+  std::cout << "ClapTrap Constructor called\n";
+}
 
 ClapTrap::~ClapTrap () { std::cout << "Destructor called\n"; }
 
 ClapTrap::ClapTrap (const ClapTrap &copy)
 {
-  std::cout << "copy constructor called\n";
+  std::cout << "ClapTrap copy constructor called\n";
   *this = copy;
 }
 
 ClapTrap &
 ClapTrap::operator= (const ClapTrap &old)
 {
-  std::cout << "assignment overload called\n";
+  std::cout << "ClapTrap assignment overload called\n";
   if (this != &old)
     {
       _name = old._name;
@@ -32,7 +32,7 @@ ClapTrap::operator= (const ClapTrap &old)
       _attackDamage = old._attackDamage;
     }
   return *this;
-};
+}
 
 void
 ClapTrap::attack (const std::string &target)
@@ -53,12 +53,16 @@ ClapTrap::attack (const std::string &target)
     std::cout << RED << "but unfortunatly " << BOLDYELLOW << _name << RED
               << " as no more energie points\n"
               << RESET;
-};
+}
 
 void
 ClapTrap::takeDamage (unsigned int amount)
 {
-  if (amount >= _hitPoint)
+  if (_hitPoint == 0)
+    std::cout << BOLDYELLOW << _name << RED
+                << " is already dead...poor thing\n"
+                << RESET;
+  else if (amount >= _hitPoint)
     {
       _hitPoint = 0;
       std::cout << BOLDYELLOW << _name << RED
@@ -74,13 +78,12 @@ ClapTrap::takeDamage (unsigned int amount)
     }
   else
     std::cout << BOLDWHITE << "WHAT HAVE YOU DONE TO HIM !\n" << RESET;
-  print_stat();
 }
 
 void
 ClapTrap::beRepaired (unsigned int amount)
 {
-  if (_energyPoint > 0)
+  if (_energyPoint > 0 && _hitPoint > 0)
   {
     _hitPoint += amount;
     std::cout << BOLDYELLOW << _name << GREEN << " regain " << amount
@@ -90,9 +93,8 @@ ClapTrap::beRepaired (unsigned int amount)
   }
   else
       std::cout << RED << "but unfortunatly " << BOLDYELLOW << _name << RED
-            << " as no more energie points\n"
+            << " is unable to move\n"
             << RESET;
-  print_stat();
 }
 
 void ClapTrap::print_stat(void)

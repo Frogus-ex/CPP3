@@ -18,26 +18,24 @@ FragTrap::FragTrap (std::string name) : ClapTrap (name)
 
 FragTrap::~FragTrap () { std::cout << "FragTrap destructor called\n"; }
 
-void
-FragTrap::attack (const std::string &target)
+FragTrap::FragTrap (const FragTrap &copy)
 {
-  if (_hitPoint > 0 && _energyPoint > 0)
+  std::cout << "FragTrap copy constructor called\n";
+  *this = copy;
+}
+
+FragTrap &
+FragTrap::operator= (const FragTrap &old)
+{
+  std::cout << "FragTrap assignment overload called\n";
+  if (this != &old)
     {
-      std::cout << BOLDYELLOW << _name << RED
-                << " talks meanfully to his opponent " << BOLDYELLOW << target
-                << RED << " causing " << BOLDRED << _attackDamage
-                << " emotionnal damage !\n"
-                << RESET;
-      _energyPoint--;
+      _name = old._name;
+      _hitPoint = old._hitPoint;
+      _energyPoint = old._energyPoint;
+      _attackDamage = old._attackDamage;
     }
-  else if (_hitPoint == 0)
-    std::cout << RED << "but sorrowfully " << BOLDYELLOW << _name << RED
-              << " is in critical conditions...\n"
-              << RESET;
-  else if (_energyPoint == 0)
-    std::cout << RED << "but sorrowfully " << BOLDYELLOW << _name << RED
-              << " is exhausted\n"
-              << RESET;
+  return *this;
 }
 
 void

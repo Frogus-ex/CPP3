@@ -25,7 +25,7 @@ public:
   ~ClapTrap ();
   ClapTrap (const ClapTrap &copy);
   ClapTrap &operator= (const ClapTrap &other);
-  void print_stat();
+  void print_stat ();
   void attack (const std::string &target);
   void takeDamage (unsigned int amout);
   void beRepaired (unsigned int amout);

@@ -22,11 +22,11 @@ protected:
 public:
   ClapTrap ();
   ClapTrap (std::string _name);
-  ~ClapTrap ();
+  virtual ~ClapTrap ();
   ClapTrap (const ClapTrap &copy);
   ClapTrap &operator= (const ClapTrap &other);
   void print_stat();
-  void attack (const std::string &target);
-  void takeDamage (unsigned int amout);
-  void beRepaired (unsigned int amout);
+  virtual void attack (const std::string &target);
+  virtual void takeDamage (unsigned int amout);
+  virtual void beRepaired (unsigned int amout);
 };

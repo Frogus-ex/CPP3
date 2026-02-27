@@ -7,7 +7,6 @@ DiamondTrap::DiamondTrap () : ClapTrap("DiamondTrap_clap_name")
   _hitPoint = FragTrap::_init_hit_point;
   _energyPoint = ScavTrap::_init_energy_point;
   _attackDamage = FragTrap::_init_attack_damage;
-  print_stat();
 }
 
 DiamondTrap::DiamondTrap (std::string name)
@@ -18,7 +17,6 @@ DiamondTrap::DiamondTrap (std::string name)
   _hitPoint = FragTrap::_init_hit_point;
   _energyPoint = ScavTrap::_init_energy_point;
   _attackDamage = FragTrap::_init_attack_damage;
-  print_stat();
 }
 
 DiamondTrap::~DiamondTrap ()
@@ -45,7 +43,6 @@ DiamondTrap::operator= (const DiamondTrap &old)
 void DiamondTrap::attack(const std::string &target)
 {
     ScavTrap::attack(target);
-    print_stat();
 }
 
 void
@@ -54,5 +51,4 @@ DiamondTrap::whoAmI ()
   std::cout << GREEN << "my name is " << BOLDYELLOW << _name << GREEN
             << "\nmy robot name is " << BOLDYELLOW << ClapTrap::_name << "\n"
             << RESET;
-  print_stat();
 }

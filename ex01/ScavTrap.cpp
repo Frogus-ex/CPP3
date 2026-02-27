@@ -6,7 +6,7 @@ ScavTrap::ScavTrap ()
   _energyPoint = 50;
   _attackDamage = 20;
   std::cout << "ScavTrap default constructor called\n";
-};
+}
 
 ScavTrap::ScavTrap (std::string name) : ClapTrap (name)
 {
@@ -14,12 +14,10 @@ ScavTrap::ScavTrap (std::string name) : ClapTrap (name)
   _energyPoint = 50;
   _attackDamage = 20;
   std::cout << "ScavTrap constructor called\n";
-  print_stat();
 }
 
 ScavTrap::~ScavTrap () { 
   std::cout << "ScavTrap Destructor called\n";
-  print_stat();
 }
 
 ScavTrap::ScavTrap (const ScavTrap &copy)
@@ -40,7 +38,7 @@ ScavTrap::operator= (const ScavTrap &old)
       _attackDamage = old._attackDamage;
     }
   return *this;
-};
+}
 
 void
 ScavTrap::attack (const std::string &target)
@@ -61,7 +59,7 @@ ScavTrap::attack (const std::string &target)
     std::cout << RED << "but sadly " << BOLDYELLOW << _name << RED
               << " is too tired\n"
               << RESET;
-};
+}
 
 void
 ScavTrap::guardGate ()

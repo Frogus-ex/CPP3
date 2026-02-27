@@ -4,21 +4,24 @@ int
 main (void)
 {
   // illustration of attacks
-  ClapTrap ben ("Tom");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
-  ben.attack ("dragons");
+  ClapTrap tom ("Tom");
+  // tom.print_stat();
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  tom.attack ("dragons");
+  // tom.print_stat();
 
   // illustration of repaired + no name
   ClapTrap test;
+  // test.print_stat();
   test.beRepaired (1);
   test.beRepaired (1);
   test.beRepaired (1);
@@ -30,15 +33,16 @@ main (void)
   test.beRepaired (1);
   test.beRepaired (1);
   test.beRepaired (1);
+  // test.print_stat();
 
   // ilustration of copy constructor & copy assignment operator
-  ClapTrap second (ben);
+  ClapTrap second (tom);
   second.beRepaired (1);
   second.attack ("les dieux");
 
   ClapTrap third;
-  third.attack ("the reality realm");
-  third = ben;
+  third = tom;
+  third.beRepaired (1);
   third.attack ("the reality realm");
 
   // illustration of death

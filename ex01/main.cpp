@@ -10,6 +10,7 @@ main (void)
   test.takeDamage (50);
   test.beRepaired (50);
   test.takeDamage (150);
+  test.takeDamage (200);
 
   ScavTrap test2 ("Tom");
   test2.attack ("dragon serpent");
